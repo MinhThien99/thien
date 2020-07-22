@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/images"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:alpha="0.8"
+                >
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:id="@+id/record_filename"
+                    android:text="Press the mic button \n to start \n recording"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    >
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/abc"
+                    android:layout_marginTop="50dp"
+                    >
+
+                </ImageView>
+
+                <Chronometer
+                    android:id="@+id/timerrecord"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:textSize="60sp"
+                    android:textColor="@color/white">
+                </Chronometer>
+
+
+                <LinearLayout
+                    android:layout_marginTop="90dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:background="@color/grey"
+                    >
+
+                    <ImageButton
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="35dp"
+                        android:layout_weight="1"
+                        android:id="@+id/btnstop"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:background="@color/grey"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/pauseicon"
+                        />
+
+
+                    <ImageButton
+                        android:layout_gravity="end|bottom"
+                        android:layout_weight="1"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:scaleType="fitCenter"
+                        android:id="@+id/recordbtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/grey"
+                        android:src="@drawable/micicon">
+
+                    </ImageButton>
+
+                    <ImageButton
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="25dp"
+                        android:id="@+id/record_list_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:background="@color/grey"
+                        android:padding="16dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/listicon">
+
+                    </ImageButton>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

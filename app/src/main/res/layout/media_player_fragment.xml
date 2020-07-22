@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/player_bg"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    app:behavior_hideable = "true"
+    app:behavior_peekHeight ="70dp"
+    android:id="@+id/playersheet">
+
+    <LinearLayout
+        android:weightSum="11"
+        android:orientation="horizontal"
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/media_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp"
+            app:srcCompat="@android:drawable/stat_sys_headset" />
+
+        <TextView
+            android:gravity="center"
+            android:layout_weight="8"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Media Player" />
+
+        <Button
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/close_media"
+            android:id="@+id/btn_close_media"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/player_filename"
+        android:layout_marginTop="32dp"
+        android:text="File Name"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout"
+        android:gravity="center_horizontal">
+    </TextView>
+
+    <ImageButton
+        android:scaleType="fitCenter"
+        android:background="@color/blue"
+        android:id="@+id/player_play_btn"
+        android:layout_width="85dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:src="@drawable/ic_media_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_filename">
+    </ImageButton>
+
+    <ImageButton
+        android:scaleType="fitCenter"
+        android:background="@color/blue"
+        android:id="@+id/previourbtn"
+        android:layout_width="104dp"
+        android:layout_height="75dp"
+        android:padding="16dp"
+        android:src="@drawable/previous"
+        app:layout_constraintBottom_toBottomOf="@id/player_play_btn"
+        app:layout_constraintEnd_toStartOf="@id/player_play_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/player_play_btn">
+
+    </ImageButton>
+
+    <ImageButton
+        android:scaleType="fitCenter"
+        android:background="@color/blue"
+        android:id="@+id/nextbtn"
+        android:layout_width="104dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="32dp"
+        android:padding="16dp"
+        android:src="@drawable/next"
+        app:layout_constraintBottom_toBottomOf="@id/player_play_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/player_play_btn"
+        app:layout_constraintVertical_bias="0.523"
+        android:layout_marginRight="32dp">
+
+    </ImageButton>
+
+    <SeekBar
+
+        android:id="@+id/player_seekbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        app:layout_constraintTop_toBottomOf="@id/player_play_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </SeekBar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

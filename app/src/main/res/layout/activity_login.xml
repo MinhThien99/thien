@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/record"
+                android:alpha="0.5"
+                >
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:textSize="35sp"
+                    android:text="Recording"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-thin"
+                    >
+                </TextView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/micro"
+                    android:layout_margin="10dp"
+                    >
+
+                </ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:visibility="visible"
+                    app:layout_behavior ="@string/appbar_scrolling_view_behavior">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        app:passwordToggleTint="@color/white"
+                        >
+
+                        <EditText
+                            android:id="@+id/edtid"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/grey"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="25sp">
+
+                        </EditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        app:passwordToggleDrawable="@drawable/icon_selector"
+                        app:passwordToggleEnabled="true"
+
+                        app:passwordToggleTint="@color/white"
+                        >
+                        <EditText
+                            android:id="@+id/edtpassword"
+                            android:background="@color/grey"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_margin="10dp"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            android:textSize="25sp"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:hint="Password">
+                        </EditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnlogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorPrimary"
+                        android:text="Login"
+                        android:padding="10dp"
+                        android:textSize="30sp"
+                        android:textColor="@android:color/white"
+                        tools:pb_colorNormal="@android:color/holo_blue_light"
+                        tools:pb_colorPressed="@android:color/holo_blue_dark"
+                        >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnregister"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:text="Register"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimary"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:textSize="20sp">
+
+                    </Button>
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+</LinearLayout>

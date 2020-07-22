@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/na_gation"
+    app:startDestination="@id/recoderFragment">
+
+    <fragment
+        android:id="@+id/recoderFragment"
+        android:name="com.example.apprecordbasic.RecorderFragment"
+        android:label="fragment_recoder"
+        tools:layout="@layout/fragment_recoder" >
+        <action
+            android:id="@+id/action_recoderFragment_to_audioListfragment"
+            app:destination="@id/audioListfragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_in"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/audioListfragment"
+        android:name="com.example.apprecordbasic.MediaPlayerFragment"
+        android:label="fragment_audio_listfragment"
+        tools:layout="@layout/fragment_audio_listfragment" />
+</navigation>
