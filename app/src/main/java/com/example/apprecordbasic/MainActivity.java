@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(mPauseRecording){
             bntstop.setImageDrawable(getResources().getDrawable(R.drawable.playicon));
             bntrecord.setEnabled(false);
+            //filenameRecord.setText(getString(R.string.resume_record).toUpperCase());
+
             Toast.makeText(getApplicationContext(), "Recorder Pause...", Toast.LENGTH_LONG).show();
 
             timeWhenPaused = timer.getBase() - SystemClock.elapsedRealtime();
@@ -81,12 +83,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else {
             bntstop.setImageDrawable(getResources().getDrawable(R.drawable.pauseicon));
             bntrecord.setEnabled(true);
+            //filenameRecord.setText(getString(R.string.record_in_progress).toUpperCase());
+
             Toast.makeText(getApplicationContext(), "Recorder Recording...", Toast.LENGTH_LONG).show();
 
             timer.setBase(SystemClock.elapsedRealtime() + timeWhenPaused);
             timer.start();
 
         }
+
     }
 
     @Override
@@ -164,8 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void stopRecording() {
-
-        Toast.makeText(getApplicationContext(), "Recorder Stopping...", Toast.LENGTH_LONG).show();
 
         bntstop.setEnabled(false);
 
