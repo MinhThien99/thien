@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         filenameRecord.setText("Recording Stop , Saved File: \n" + recordFile);
 
         mediaRecorder.stop();
-        mediaRecorder.release();
+//        mediaRecorder.release();
         mediaRecorder = null;
 
     }

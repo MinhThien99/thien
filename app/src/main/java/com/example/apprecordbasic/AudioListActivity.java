@@ -56,4 +56,5 @@ public class AudioListActivity extends AppCompatActivity implements audioAdapter
         fragmentTransaction.add(R.id.media_container, new MediaPlayerFragment(files, position), null)
                 .commit();
     }
+
 }

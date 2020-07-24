@@ -155,6 +155,13 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
             playbtn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_media_play, null));
             isPlaying = false;
             mediaPlayer.stop();
+            try {
+                Thread.sleep(2000);
+                mediaPlayer.reset();
+                playaudio(files[file_cur_pos]);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             seekbarHandler.removeCallbacks(updateseekbar);
         }
     }
