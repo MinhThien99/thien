@@ -3,6 +3,11 @@ package com.example.apprecordbasic;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,13 +23,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.URI;
 
 public class audioAdapter extends RecyclerView.Adapter<audioAdapter.AudioViewHolder> {
     private File[] allFiles;
     timeAgo timeago;
     private onItemListClick onitemListClick;
+    private Context context;
 
     public audioAdapter(File[] allFiles , onItemListClick onitemListClick){
         this.allFiles = allFiles;
@@ -127,6 +136,14 @@ public class audioAdapter extends RecyclerView.Adapter<audioAdapter.AudioViewHol
 //                    notifyItemRangeChanged(getAdapterPosition(), AudioListActivity.recyclerView.getChildCount());
 //                    notifyDataSetChanged();
                     Log.d("FILES AFTER DELETED", Integer.toString(allFiles.length));
+                    return true;
+                case R.id.act_share:
+                    Intent shareIntent;
+                    shareIntent = new Intent(Intent.ACTION_SEND);
+                    String mess = "Ta la Tran Minh Thien";
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, mess);
+                    shareIntent.setType("text/plain");
+                    context.startActivity(Intent.createChooser(shareIntent, "share to: "));
                     return true;
                 default:
                     return true;

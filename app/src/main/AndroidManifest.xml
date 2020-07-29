@@ -24,8 +24,20 @@
 
         </activity>
         <activity android:name=".MainActivity">
-
         </activity>
+        
+        <provider
+            android:authorities="com.example.apprecordbasic.files"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/filepaths">
+            </meta-data>
+        </provider>
+        
         <activity android:name=".AudioListActivity">
         </activity>
     </application>
