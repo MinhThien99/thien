@@ -1,6 +1,7 @@
 package com.example.apprecordbasic;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -13,6 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
 import java.security.Permission;
 
 import static android.Manifest.permission.RECORD_AUDIO;
@@ -23,6 +32,8 @@ public class Login extends AppCompatActivity {
     EditText edtid , edtpassword;
     Button btnlogin , btnregister;
     Database database;
+    private CallbackManager callbackManager;
+    LoginButton loginButton;
     public static final int CHECK_PERMISSION = 1;
 
     @Override
@@ -30,8 +41,28 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        callbackManager = CallbackManager.Factory.create();
         database = new Database(this);
         addViews();
+        loginButton.setPermissions("email");
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(getApplicationContext(), "Wrong email or password ", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +101,7 @@ public class Login extends AppCompatActivity {
 
         edtid = findViewById(R.id.edtid);
         edtpassword = findViewById(R.id.edtpassword);
-
+        loginButton = findViewById(R.id.loginfacebook);
         btnlogin = findViewById(R.id.btnlogin);
         btnregister = findViewById(R.id.btnregister);
 
@@ -104,6 +135,10 @@ public class Login extends AppCompatActivity {
         ActivityCompat.requestPermissions(Login.this, new String[]{RECORD_AUDIO, WRITE_EXTERNAL_STORAGE} , CHECK_PERMISSION);
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        callbackManager.onActivityResult(requestCode,resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
 }

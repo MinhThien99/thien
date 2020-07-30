@@ -143,7 +143,7 @@ public class audioAdapter extends RecyclerView.Adapter<audioAdapter.AudioViewHol
                     String mess = "Ta la Tran Minh Thien";
                     shareIntent.putExtra(Intent.EXTRA_TEXT, mess);
                     shareIntent.setType("text/plain");
-                    context.startActivity(Intent.createChooser(shareIntent, "share to: "));
+                    itemView.getContext().startActivity(Intent.createChooser(shareIntent, "share to: "));
                     return true;
                 default:
                     return true;

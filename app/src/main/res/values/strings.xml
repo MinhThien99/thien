@@ -9,4 +9,7 @@
     <string name="cancel">Cancel</string>
     <string name="record_in_progress">Recording... </string>
     <string name="resume_record">Pause... </string>
+    <string name="facebook_app_id">667866200477418</string>
+    <string name="fb_login_protocol_scheme">fb667866200477418</string>
+
 </resources>
