@@ -25,8 +25,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/record"
                 android:alpha="0.5"
-                >
-            </ImageView>
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,17 +41,14 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:fontFamily="sans-serif-thin"
-                    >
-                </TextView>
+                   />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:src="@drawable/micro"
                     android:layout_margin="10dp"
-                    >
-
-                </ImageView>
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -80,9 +76,7 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
-                            android:textSize="25sp">
-
-                        </EditText>
+                            android:textSize="25sp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -105,8 +99,7 @@
                             android:textSize="25sp"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
-                            android:hint="Password">
-                        </EditText>
+                            android:hint="Password"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
@@ -121,8 +114,7 @@
                         android:textColor="@android:color/white"
                         tools:pb_colorNormal="@android:color/holo_blue_light"
                         tools:pb_colorPressed="@android:color/holo_blue_dark"
-                        >
-                    </Button>
+                        />
 
                     <Button
                         android:id="@+id/btnregister"
@@ -133,12 +125,7 @@
                         android:background="@color/colorPrimary"
                         android:layout_margin="5dp"
                         android:layout_gravity="center"
-                        android:textSize="20sp">
-
-                    </Button>
-
-
-
+                        android:textSize="20sp"/>
                 </LinearLayout>
                 <com.facebook.login.widget.LoginButton
                     android:layout_width="match_parent"

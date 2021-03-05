@@ -1,5 +1,6 @@
 package com.example.apprecordbasic;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -7,24 +8,28 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.util.Log;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageButton listbtn , bntstop;
+    private ImageButton listbtn, bntstop, video_list;
     private ImageButton bntrecord;
     private MediaRecorder mediaRecorder = null;
     private String recordFile;
@@ -32,13 +37,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView filenameRecord;
     private int mRecordPromptCount = 0;
     private boolean mPauseRecording = true;
+    private ImageButton btnvideorecord;
 
     private boolean isRecording = false;
     private boolean mStartRecording = true;
     long timeWhenPaused = 0;
 
-    private static final int PEMISSION_CODE = 1000 ;
-    private String recordPermission = Manifest.permission.RECORD_AUDIO;
+    private final String recordPermission = Manifest.permission.RECORD_AUDIO;
+    private final int VIDEO_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +57,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bntrecord = findViewById(R.id.recordbtn);
         listbtn = findViewById(R.id.record_list_btn);
         bntstop.setEnabled(false);
-
+        btnvideorecord = findViewById(R.id.record_video);
+        video_list = findViewById(R.id.video_list);
 
         bntrecord.setOnClickListener(this);
         listbtn.setOnClickListener(this);
+        btnvideorecord.setOnClickListener(this);
+        video_list.setOnClickListener(this);
         bntstop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,9 +147,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 break;
+            case R.id.record_video:
+                Intent camera_intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+               // File video_file = getFilepath();
+                //Uri Video_uri = Uri.fromFile(video_file);
+                if (camera_intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(camera_intent, VIDEO_REQUEST_CODE);
+                }
+                break;
+            case R.id.video_list:
+                Intent intent = new Intent(MainActivity.this, recordVideo.class);
+                startActivity(intent);
+                break;
         }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == RESULT_OK && resultCode == 1) {
+                Uri uriVideo = data.getData();
+                VideoView videoView = new VideoView(this);
+                videoView.setVideoURI(uriVideo);
+
+            }
+
+    }
+
+/*
+    private File getFilepath() {
+
+        File forder = new File("sdcard/video_app");
+        if(!forder.exists()){
+            forder.mkdir();
+        }
+        File video_File = new File(forder, "sample_video.mp4");
+        return video_File;
+    }
+ */
 
     private void startRecording() {
         bntstop.setEnabled(true);
@@ -173,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bntstop.setEnabled(false);
 
         timer.stop();
-        filenameRecord.setText("Recording Stop , Saved File: \n" + recordFile);
+        filenameRecord.setText("Recording Stop, Saved File: \n" + recordFile);
 
         mediaRecorder.stop();
 //        mediaRecorder.release();

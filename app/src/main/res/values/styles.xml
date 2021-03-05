@@ -12,4 +12,11 @@
         <item name="android:disabledAlpha">0.5</item>
     </style>
 
+
+    <style name="SeekBar" parent="AppTheme">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/gray</item>
+    </style>
+
+
 </resources>

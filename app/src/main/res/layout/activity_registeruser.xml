@@ -23,8 +23,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/nenxam"
-                android:alpha="0.8">
-            </ImageView>
+                android:alpha="0.8"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,8 +42,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="50dp"
-                        >
-                    </ImageView>
+                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -54,9 +52,7 @@
                         android:layout_marginLeft="5dp"
                         android:textStyle="bold"
                         android:layout_marginTop="25dp"
-                        >
-
-                    </TextView>
+                       />
                 </LinearLayout>
 
                 <LinearLayout
@@ -86,8 +82,7 @@
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
                             android:hint="Email"
-                            >
-                        </EditText>
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -110,8 +105,7 @@
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
                             android:hint="Password"
-                            >
-                        </EditText>
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -135,8 +129,7 @@
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
                             android:hint="Again Password"
-                            >
-                        </EditText>
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
@@ -148,8 +141,7 @@
                         android:layout_margin="10dp"
                         android:padding="10dp"
                         android:id="@+id/btnsignin"
-                        >
-                    </Button>
+                       />
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
