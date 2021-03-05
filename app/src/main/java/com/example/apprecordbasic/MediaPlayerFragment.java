@@ -222,43 +222,93 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.btn_close_media){
+            if(isPlaying){
+                isPlaying = false;
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                seekbarHandler.removeCallbacks(updateseekbar);
+            }
             getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
-//            boolean success = renameFile(files[file_cur_pos], "tho");
+//            boolean success = renameFile(files[file_cur_pos], "thien");
 //            Log.d("RENAME FILE SUCESS", Boolean.toString(success));
         }
         else if(id == R.id.nextbtn){
-            if(file_cur_pos < files.length -1){
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction
-                        .replace(R.id.media_container, new MediaPlayerFragment(files, ++file_cur_pos), null)
-                        .commit();
+
+            if(isPlaying) {
+                isPlaying = false;
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                seekbarHandler.removeCallbacks(updateseekbar);
+                if (file_cur_pos < files.length - 1) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, ++file_cur_pos), null)
+                            .commit();
+                } else {
+                    file_cur_pos = 0;
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .commit();
+                }
             }
             else {
-                file_cur_pos = 0;
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction
-                        .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
-                        .commit();
+                if (file_cur_pos < files.length - 1) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, ++file_cur_pos), null)
+                            .commit();
+                } else {
+                    file_cur_pos = 0;
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .commit();
+                }
             }
         }
         else if(id == R.id.previourbtn){
-            if(file_cur_pos > 0 ){
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction
-                        .replace(R.id.media_container, new MediaPlayerFragment(files, --file_cur_pos), null)
-                        .commit();
+            if(isPlaying) {
+                isPlaying = false;
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                seekbarHandler.removeCallbacks(updateseekbar);
+                if (file_cur_pos > 0) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, --file_cur_pos), null)
+                            .commit();
+                } else {
+                    file_cur_pos = files.length - 1;
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .commit();
+                }
             }
             else {
-                file_cur_pos = files.length - 1;
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction
-                        .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
-                        .commit();
+                if (file_cur_pos > 0) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, --file_cur_pos), null)
+                            .commit();
+                } else {
+                    file_cur_pos = files.length - 1;
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction
+                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .commit();
+                }
             }
+
         }
     }
 

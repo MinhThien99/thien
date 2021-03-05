@@ -1,14 +1,7 @@
 package com.example.apprecordbasic;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,10 +44,11 @@ public class AudioListActivity extends AppCompatActivity implements audioAdapter
 
     @Override
     public void onClicklistener(File file, int position) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.media_container, new MediaPlayerFragment(files, position), null)
-                .commit();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.media_container, new MediaPlayerFragment(files, position), null)
+                    .commit();
+
     }
 
 }
