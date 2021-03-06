@@ -70,13 +70,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:layout_margin="10dp"
-                            android:background="@color/grey"
+                            android:background="@drawable/border_edittext"
                             android:hint="Email"
+                            android:paddingLeft="20dp"
                             android:inputType="textEmailAddress"
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
-                            android:textSize="25sp"/>
+                            android:textSize="25sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +91,7 @@
                         >
                         <EditText
                             android:id="@+id/edtpassword"
-                            android:background="@color/grey"
+                            android:background="@drawable/border_edittext"
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:layout_margin="10dp"
@@ -99,7 +100,9 @@
                             android:textSize="25sp"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
-                            android:hint="Password"/>
+                            android:hint="Password"
+                            android:paddingLeft="20dp"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
@@ -107,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/border_button"
                         android:text="Login"
                         android:padding="10dp"
                         android:textSize="30sp"
@@ -122,23 +125,22 @@
                         android:layout_height="wrap_content"
                         android:text="Register"
                         android:textColor="@color/white"
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/border_button"
                         android:layout_margin="5dp"
                         android:layout_gravity="center"
                         android:textSize="20sp"/>
                 </LinearLayout>
+
                 <com.facebook.login.widget.LoginButton
+                    android:id="@+id/loginfacebook"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/loginfacebook"
                     android:layout_gravity="center"
                     android:layout_marginTop="25dp"
                     android:background="@color/blue"
                     android:text="Login With Facebook"
-                    android:textStyle="bold"
                     android:textSize="20sp"
-                    >
-                </com.facebook.login.widget.LoginButton>
+                    android:textStyle="bold"></com.facebook.login.widget.LoginButton>
             </LinearLayout>
         </FrameLayout>
     </ScrollView>
