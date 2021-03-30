@@ -1,11 +1,5 @@
 # ApplicationRecord_Android_Java
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/login.jpg) 
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/main.jpg) 
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/audiorecord.jpg) 
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/audioList.jpg) 
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/audioPlayer.jpg) 
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/videoList.jpg) 
-![alt tag](https://github.com/MinhThien99/ApplicationRecord_Android_Java/blob/ThienMaster/Image/videoPlayer.jpg) 
++ Image For My App: https://github.com/MinhThien99/ApplicationRecord_Android_Java/tree/ThienMaster/Image
 
 # Android Recording Library
 Android Recording library offers convenient tools for audio/video recording and playback.
