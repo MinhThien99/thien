@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.utils;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;

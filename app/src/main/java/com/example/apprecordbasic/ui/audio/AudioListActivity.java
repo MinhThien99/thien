@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui.audio;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.adapter.audioAdapter;
 
 import java.io.File;
 
@@ -46,7 +49,7 @@ public class AudioListActivity extends AppCompatActivity implements audioAdapter
     public void onClicklistener(File file, int position) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.media_container, new MediaPlayerFragment(files, position), null)
+            fragmentTransaction.add(R.id.media_container, new fragmentAudioPlayer(files, position), null)
                     .commit();
 
     }

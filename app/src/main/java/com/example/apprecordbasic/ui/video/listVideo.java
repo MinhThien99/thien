@@ -1,14 +1,11 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui.video;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,11 +13,15 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
+import com.example.apprecordbasic.Model.videoModel;
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.adapter.videoAdapter;
+import com.example.apprecordbasic.ui.audio.recordAudio;
 
 import java.util.ArrayList;
 
-public class recordVideo extends AppCompatActivity {
+public class listVideo extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ImageButton btnBack;
@@ -38,7 +39,7 @@ public class recordVideo extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(recordVideo.this, MainActivity.class);
+                Intent intent = new Intent(listVideo.this, recordAudio.class);
                 startActivity(intent);
             }
         });

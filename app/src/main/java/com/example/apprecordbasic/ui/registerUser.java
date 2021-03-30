@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,19 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class registeruser extends AppCompatActivity {
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.database.databaseLogin;
+
+public class registerUser extends AppCompatActivity {
 
     EditText edtemail , edtpass , edtagainpass;
     Button btnsignin;
 
-    Database database;
+    com.example.apprecordbasic.database.databaseLogin databaseLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeruser);
 
-        database = new Database(this);
+        databaseLogin = new databaseLogin(this);
         addView();
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +38,12 @@ public class registeruser extends AppCompatActivity {
                 }
                 else{
                     if(pass.equals(againpass)){
-                        Boolean checkEmail = database.checkEmail(email);
+                        Boolean checkEmail = databaseLogin.checkEmail(email);
                         if(checkEmail == true){
-                            Boolean insert = database.insert(email, pass);
+                            Boolean insert = databaseLogin.insert(email, pass);
                             if(insert == true){
                                 Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(registeruser.this, Login.class);
+                                Intent intent = new Intent(registerUser.this, Login.class);
                                 startActivity(intent);
                             }
                         }

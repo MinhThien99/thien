@@ -1,10 +1,6 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui.audio;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.media.MediaPlayer;
-import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -26,10 +21,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.File;
-import java.io.IOException;
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.adapter.audioAdapter;
 
-public class MediaPlayerFragment extends Fragment implements View.OnClickListener  {
+import java.io.File;
+
+public class fragmentAudioPlayer extends Fragment implements View.OnClickListener  {
 
     private ConstraintLayout playsheet;
     RecyclerView recyclerView;
@@ -48,7 +45,7 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
     private Handler seekbarHandler;
     private Runnable updateseekbar;
 
-    public MediaPlayerFragment(File[] files, int file_cur_pos){
+    public fragmentAudioPlayer(File[] files, int file_cur_pos){
         this.files = files;
         this.file_cur_pos = file_cur_pos;
     }
@@ -61,7 +58,7 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.media_player_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_media_player, container, false);
     }
 
     @Override
@@ -243,14 +240,14 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, ++file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, ++file_cur_pos), null)
                             .commit();
                 } else {
                     file_cur_pos = 0;
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, file_cur_pos), null)
                             .commit();
                 }
             }
@@ -259,14 +256,14 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, ++file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, ++file_cur_pos), null)
                             .commit();
                 } else {
                     file_cur_pos = 0;
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, file_cur_pos), null)
                             .commit();
                 }
             }
@@ -281,14 +278,14 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, --file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, --file_cur_pos), null)
                             .commit();
                 } else {
                     file_cur_pos = files.length - 1;
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, file_cur_pos), null)
                             .commit();
                 }
             }
@@ -297,14 +294,14 @@ public class MediaPlayerFragment extends Fragment implements View.OnClickListene
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, --file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, --file_cur_pos), null)
                             .commit();
                 } else {
                     file_cur_pos = files.length - 1;
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction
-                            .replace(R.id.media_container, new MediaPlayerFragment(files, file_cur_pos), null)
+                            .replace(R.id.media_container, new fragmentAudioPlayer(files, file_cur_pos), null)
                             .commit();
                 }
             }

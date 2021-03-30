@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/audioListfragment"
-        android:name="com.example.apprecordbasic.MediaPlayerFragment"
+        android:name="com.example.apprecordbasic.ui.audio.fragmentAudioPlayer"
         android:label="fragment_audio_listfragment"
         tools:layout="@layout/fragment_audio_listfragment" />
 </navigation>

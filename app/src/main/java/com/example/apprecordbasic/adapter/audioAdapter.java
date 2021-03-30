@@ -1,13 +1,9 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -17,17 +13,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.apprecordbasic.ui.audio.AudioListActivity;
+import com.example.apprecordbasic.ui.audio.fragmentAudioPlayer;
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.utils.timeAgo;
+
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.net.URI;
 
 public class audioAdapter extends RecyclerView.Adapter<audioAdapter.AudioViewHolder> {
     private File[] allFiles;
@@ -44,7 +41,7 @@ public class audioAdapter extends RecyclerView.Adapter<audioAdapter.AudioViewHol
     @Override
     public audioAdapter.AudioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.audio_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_audio,parent,false);
         timeago = new timeAgo();
         return new AudioViewHolder(view);
     }
@@ -167,7 +164,7 @@ public class audioAdapter extends RecyclerView.Adapter<audioAdapter.AudioViewHol
             public void onClick(DialogInterface dialog, int whichButton) {
                 String title_edited = input.getEditableText().toString();
                 ((TextView)view).setText(title_edited);
-                MediaPlayerFragment.renameFile(allFiles[pos], title_edited);
+                fragmentAudioPlayer.renameFile(allFiles[pos], title_edited);
             }
         });
 

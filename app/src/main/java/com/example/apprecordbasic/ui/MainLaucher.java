@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.ui.video.listVideo;
+import com.example.apprecordbasic.ui.audio.recordAudio;
 
 public class MainLaucher extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,11 +44,11 @@ public class MainLaucher extends AppCompatActivity implements View.OnClickListen
                 }
                 break;
             case R.id.bnt_record_Videolaucher:
-                Intent intent1 = new Intent(MainLaucher.this, MainActivity.class);
+                Intent intent1 = new Intent(MainLaucher.this, recordAudio.class);
                 startActivity(intent1);
                 break;
             case R.id.bnt_list_VideoLaucher:
-                Intent intent2 = new Intent(MainLaucher.this, recordVideo.class);
+                Intent intent2 = new Intent(MainLaucher.this, listVideo.class);
                 startActivity(intent2);
                 break;
         }

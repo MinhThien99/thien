@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.Model;
 
 import android.net.Uri;
 

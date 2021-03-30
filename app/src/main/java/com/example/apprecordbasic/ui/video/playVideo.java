@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui.video;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.VideoView;
-import static com.example.apprecordbasic.recordVideo.videoModelArrayList;
+
+import com.example.apprecordbasic.R;
+
+import static com.example.apprecordbasic.ui.video.listVideo.videoModelArrayList;
 
 public class playVideo extends AppCompatActivity {
 

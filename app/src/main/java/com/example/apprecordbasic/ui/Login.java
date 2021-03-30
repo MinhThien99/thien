@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,15 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
+import com.example.apprecordbasic.R;
+import com.example.apprecordbasic.database.databaseLogin;
+import com.example.apprecordbasic.ui.audio.recordAudio;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import java.security.Permission;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -31,7 +30,7 @@ public class Login extends AppCompatActivity {
 
     EditText edtid , edtpassword;
     Button btnlogin , btnregister;
-    Database database;
+    com.example.apprecordbasic.database.databaseLogin databaseLogin;
     private CallbackManager callbackManager;
     LoginButton loginButton;
     public static final int CHECK_PERMISSION = 1;
@@ -42,14 +41,14 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         callbackManager = CallbackManager.Factory.create();
-        database = new Database(this);
+        databaseLogin = new databaseLogin(this);
         addViews();
         loginButton.setPermissions("email");
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Intent intent = new Intent(Login.this, MainActivity.class);
+                Intent intent = new Intent(Login.this, recordAudio.class);
                 startActivity(intent);
             }
 
@@ -67,7 +66,7 @@ public class Login extends AppCompatActivity {
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, registeruser.class);
+                Intent intent = new Intent(Login.this, registerUser.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +78,7 @@ public class Login extends AppCompatActivity {
                     String id = edtid.getText().toString();
                     String pass = edtpassword.getText().toString();
 
-                    Boolean checkemailpass = database.emailPass(id, pass);
+                    Boolean checkemailpass = databaseLogin.emailPass(id, pass);
 
                     if (checkemailpass == true) {
                         Toast.makeText(getApplicationContext(), "Successful Login", Toast.LENGTH_SHORT).show();

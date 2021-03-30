@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,11 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class Database  extends SQLiteOpenHelper {
+public class databaseLogin extends SQLiteOpenHelper {
 
     private static final String LOG_TAG = "Database";
 
-    public Database(@Nullable Context context) {
+    public databaseLogin(@Nullable Context context) {
         super(context, "data.db", null, 1);
     }
 

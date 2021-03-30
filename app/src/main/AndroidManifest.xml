@@ -19,18 +19,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainLaucher"></activity>
-        <activity android:name=".playVideo" />
-        <activity android:name=".recordVideo" />
-        <activity android:name=".registeruser" />
-        <activity android:name=".Login">
+        <activity android:name=".ui.MainLaucher"></activity>
+        <activity android:name=".ui.video.playVideo" />
+        <activity android:name=".ui.video.listVideo" />
+        <activity android:name=".ui.registerUser" />
+        <activity android:name=".ui.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.audio.recordAudio" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -42,7 +42,7 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
-        <activity android:name=".AudioListActivity" />
+        <activity android:name=".ui.audio.AudioListActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

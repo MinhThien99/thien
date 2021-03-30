@@ -1,4 +1,4 @@
-package com.example.apprecordbasic;
+package com.example.apprecordbasic.ui.audio;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
@@ -20,14 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import java.io.File;
+import com.example.apprecordbasic.R;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class recordAudio extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton listbtn, bntstop, video_list;
     private ImageButton bntrecord;
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                                 bntrecord.setImageDrawable(getResources().getDrawable(R.drawable.micicon,null));
                             }
-                            Intent intent = new Intent(MainActivity.this, AudioListActivity.class);
+                            Intent intent = new Intent(recordAudio.this, AudioListActivity.class);
                             startActivity(intent);
                             isRecording = false;
                         }
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     alBuilder.create().show();
                 }
                 else {
-                    Intent intent = new Intent(MainActivity.this, AudioListActivity.class);
+                    Intent intent = new Intent(recordAudio.this, AudioListActivity.class);
                     startActivity(intent);
                 }
                 break;
