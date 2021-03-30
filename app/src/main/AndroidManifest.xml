@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".playVideo"></activity>
+        <activity android:name=".MainLaucher"></activity>
+        <activity android:name=".playVideo" />
         <activity android:name=".recordVideo" />
         <activity android:name=".registeruser" />
         <activity android:name=".Login">

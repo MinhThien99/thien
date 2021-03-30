@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     long timeWhenPaused = 0;
 
     private final String recordPermission = Manifest.permission.RECORD_AUDIO;
-    private final int VIDEO_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bntrecord = findViewById(R.id.recordbtn);
         listbtn = findViewById(R.id.record_list_btn);
         bntstop.setEnabled(false);
-        btnvideorecord = findViewById(R.id.record_video);
-        video_list = findViewById(R.id.video_list);
 
         bntrecord.setOnClickListener(this);
         listbtn.setOnClickListener(this);
-        btnvideorecord.setOnClickListener(this);
-        video_list.setOnClickListener(this);
         bntstop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 break;
+                /*
             case R.id.record_video:
                 Intent camera_intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
                // File video_file = getFilepath();
@@ -159,6 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, recordVideo.class);
                 startActivity(intent);
                 break;
+
+                 */
         }
 
     }

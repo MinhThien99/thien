@@ -4,6 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F5F5"
     tools:context=".MainLaucher">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="APP RECORD"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/bnt_record_Videolaucher"
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/shapetest"
+        android:color="#0004ff"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_mic_white_36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:text="Record Video"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/bnt_main_mic_recordlaucher" />
+
+
+    <ImageButton
+        android:id="@+id/bnt_list_VideoLaucher"
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/listvideo"
+        android:src="@drawable/iconlistvideo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="List Video"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnt_list_VideoLaucher" />
+
+    <ImageButton
+        android:id="@+id/bnt_main_mic_recordlaucher"
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/shapecamera"
+        android:scaleType="fitCenter"
+        android:src="@drawable/camerawhite"
+        app:layout_constraintStart_toEndOf="@+id/bnt_record_Videolaucher"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:text="Record Audio"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnt_record_Videolaucher" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
